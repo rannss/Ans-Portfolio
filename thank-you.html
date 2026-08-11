@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Message Sent | Ans Arshad</title>
+<link rel="stylesheet" href="styles.css">
+<script>
+  if(localStorage.getItem('theme') === 'dark'){
+    document.documentElement.setAttribute('data-theme','dark');
+  }
+</script>
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="index.html" class="logo">Ans Arshad</a>
+  <div class="links">
+    <a href="index.html#shortform">Short Form</a>
+    <a href="index.html#longform">Long Form</a>
+    <a href="index.html#owncontent">Own Content</a>
+    <a href="contact.html" class="contact-btn">Contact</a>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">&#9789;</button>
+  </div>
+</nav>
+
+<div class="ty-wrap">
+  <div class="ty-card glass">
+    <div class="icon">&#10003;</div>
+    <h1>Message sent</h1>
+    <p>Thanks for reaching out. I'll get back to you soon.</p>
+    <a href="index.html" class="btn btn-primary">Back to Portfolio</a>
+  </div>
+</div>
+
+<footer>
+  <p>Made with &#10084;&#65039; by Ans. All rights reserved &#169; 2026</p>
+</footer>
+
+<script>
+  const themeToggle = document.getElementById('themeToggle');
+  const root = document.documentElement;
+  function syncIcon(){
+    themeToggle.innerHTML = root.getAttribute('data-theme') === 'dark' ? '&#9728;&#65039;' : '&#9789;';
+  }
+  syncIcon();
+  themeToggle.addEventListener('click', () => {
+    const isDark = root.getAttribute('data-theme') === 'dark';
+    if(isDark){
+      root.removeAttribute('data-theme');
+      localStorage.setItem('theme','light');
+    } else {
+      root.setAttribute('data-theme','dark');
+      localStorage.setItem('theme','dark');
+    }
+    syncIcon();
+  });
+</script>
+
+</body>
+</html>

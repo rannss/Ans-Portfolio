@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact | Ans Arshad</title>
+<link rel="stylesheet" href="styles.css">
+<script>
+  if(localStorage.getItem('theme') === 'dark'){
+    document.documentElement.setAttribute('data-theme','dark');
+  }
+</script>
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="index.html" class="logo">Ans Arshad</a>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">&#9776;</button>
+  <div class="links" id="navLinks">
+    <a href="index.html#shortform">Short Form</a>
+    <a href="index.html#longform">Long Form</a>
+    <a href="index.html#owncontent">Own Content</a>
+    <a href="contact.html" class="contact-btn">Contact</a>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">&#9789;</button>
+  </div>
+</nav>
+
+<div class="contact-wrap">
+  <div class="contact-card glass">
+    <h1>Let's talk</h1>
+    <p>Reach out directly, or send a message below and it lands straight in my inbox.</p>
+
+    <div class="contact-links">
+      <a class="contact-link" href="https://www.instagram.com/r_annss" target="_blank" rel="noopener">
+        <span class="icon">IG</span>
+        <span class="meta">Instagram<small>@r_annss</small></span>
+      </a>
+      <a class="contact-link" href="https://wa.me/923347268868" target="_blank" rel="noopener">
+        <span class="icon">WA</span>
+        <span class="meta">WhatsApp<small>+92 334 7268868</small></span>
+      </a>
+    </div>
+
+    <div class="divider">or email me</div>
+
+    <form class="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="thank-you.html">
+      <input type="hidden" name="form-name" value="contact">
+      <p style="display:none;">
+        <label>Don't fill this out: <input name="bot-field"></label>
+      </p>
+
+      <div class="field">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Your name" required>
+      </div>
+
+      <div class="field">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="you@email.com" required>
+      </div>
+
+      <div class="field">
+        <label for="message">Message (optional)</label>
+        <textarea id="message" name="message" placeholder="What are you looking to work on?"></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-primary submit-btn">Send Message</button>
+    </form>
+  </div>
+</div>
+
+<footer>
+  <p>Made with &#10084;&#65039; by Ans. All rights reserved &#169; 2026</p>
+</footer>
+
+<script>
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+
+  const themeToggle = document.getElementById('themeToggle');
+  const root = document.documentElement;
+  function syncIcon(){
+    themeToggle.innerHTML = root.getAttribute('data-theme') === 'dark' ? '&#9728;&#65039;' : '&#9789;';
+  }
+  syncIcon();
+  themeToggle.addEventListener('click', () => {
+    const isDark = root.getAttribute('data-theme') === 'dark';
+    if(isDark){
+      root.removeAttribute('data-theme');
+      localStorage.setItem('theme','light');
+    } else {
+      root.setAttribute('data-theme','dark');
+      localStorage.setItem('theme','dark');
+    }
+    syncIcon();
+  });
+</script>
+
+</body>
+</html>
